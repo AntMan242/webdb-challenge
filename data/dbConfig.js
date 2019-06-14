@@ -1,7 +1,7 @@
 const knex = require('knex');
 
 // development key
-const knexConfig = require('../knexfile.js'); 
+const knexConfig = require('../knexfile'); 
 
 const db = knex(knexConfig.development)
 

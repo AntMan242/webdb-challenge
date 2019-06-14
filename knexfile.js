@@ -6,16 +6,16 @@ module.exports = {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-      filename: './lambda.sqlite3'
+      filename: './data/lambdaschool.db3'
     },
     
     },
 
   migrations: {
-    directory: '../data/migrations',
+    directory: './migrations',
   },
   seeds: {
-    directory: '../data/seeds',
+    directory: './seeds',
   },
   pool: {
     afterCreate: (connection, done) => {

@@ -8,7 +8,7 @@ const knexConfig = {
         filename: '../data/lambda.db3',
     },
     useNullAsDefault: true,
-}
+};
 
 module.exports = {
     find,
@@ -28,9 +28,9 @@ module.exports = {
       .first();
   }
   
-  function add(actions) {
+  function add(action) {
     return db('actions')
-        .insert(actions)
+        .insert(action)
         .then(([id]) => {
             return findById(id)
         })

@@ -6,7 +6,7 @@ const db = require('../data/dbConfig.js');
 
 router.get('/', (req, res ) => {
     console.log(';;;;;;;;;;;;;;;; in get projects');
-      Projects.find()
+      Project.find()
           .then(projects => {
             console.log(';;;;;;;;;;;;;;;;;;' + projects);
               res.status(200).json(projects);
