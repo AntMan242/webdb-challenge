@@ -6,16 +6,16 @@ const knexConfig = {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-        filename: './data/lambda.db3'
+        filename: './data/lambda.sqlite3'
     }
 }
 
 const db = knex(knexConfig);
 
 //check
-router.get('/', (req, res) => {
-    res.send('We Ready!')
-});
+// router.get('/', (req, res) => {
+//     res.send('We Ready!')
+// });
 
 router.get('/', (req, res) => {
     db('projects')
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
         const project = await db('projects').insert(req.body)
         res.status(201).json(project)
     } catch (error) {
-        res.status(500).json({ error: 'There was an error posting that!' })
+        res.status(500).json({ error: 'Error! Could not post!' })
     }
 });
 
