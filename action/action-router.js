@@ -12,11 +12,29 @@ const knexConfig = {
 
 const db = knex(knexConfig);
 
-//check
+// check
+// router.get('/', (req, res) => {
+//     res.send('We Ready!')
+// });
+
 router.get('/', (req, res) => {
-    res.send('We Ready!')
+    db('actions')
+    .then(actions => {
+        res.status(200).json(actions)
+    })
+    .catch(err => {
+        res.status(500).json(err)
+    })
 });
 
-router.post
+//check
+router.post('/', async (req, res) => {
+    try {
+        const action = await db('actions').insert(req.body)
+        res.status(201).json(action)
+    } catch (error) {
+        res.status(500).json({ error: 'Could not complete that posting!' })
+    }
+});
 
 module.exports = router;
